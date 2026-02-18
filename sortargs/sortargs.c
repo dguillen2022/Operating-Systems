@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define UPPERCASE_CONST 32
+
 void
 insertion_sort(char *arr[], int n)
 {
@@ -29,7 +31,7 @@ uppercase(int num_args, char *arr[])
 
         while (*p != '\0') {
             if (*p >= 'a' && *p <= 'z') {
-                *p -= 32;
+                *p -= UPPERCASE_CONST;
             }
             p++;
         }
@@ -42,7 +44,7 @@ main(int argc, char *argv[])
     int j;
 
     if (argc == 1) {
-        fprintf(stderr, "Error: Introduce cadenas de texto\n");
+        fprintf(stderr, "error: no arguments\n");
         exit(EXIT_FAILURE);
     }
 
@@ -51,9 +53,9 @@ main(int argc, char *argv[])
     insertion_sort(&argv[1], argc - 1);
 
     //Print without duplicates
-    printf("%s\n", argv[1]);
+    printf("%s\n", argv[1]); //Print the first element on the list
 
-    for (j = 2; j < argc; j++) {
+    for (j = 2; j < argc; j++) { //Print comparing the following 2 elements
         if (strcmp(argv[j], argv[j-1]) != 0) {
             printf("%s\n", argv[j]);
         }
