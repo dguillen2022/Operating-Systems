@@ -33,6 +33,7 @@ uppercase(int num_args, char *arr[])
 		p = arr[i];
 
 		while (*p != '\0') {
+
 			if (*p >= 'a' && *p <= 'z') {
 				*p -= UPPERCASE_CONST;
 			}
@@ -56,9 +57,12 @@ main(int argc, char *argv[])
 	insertion_sort(&argv[1], argc - 1);
 
 	/* Print without duplicates */
-	printf("%s\n", argv[1]);	/* Print the first element on the list */
+	/* Print the first element on the list */
+	printf("%s\n", argv[1]);
 
-	for (j = 2; j < argc; j++) {	/* Print comparing the following 2 elements */
+	/* Print comparing the following 2 elements */
+	for (j = 2; j < argc; j++) {
+
 		if (strcmp(argv[j], argv[j - 1]) != 0) {
 			printf("%s\n", argv[j]);
 		}
